@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slope - Unblocked Games 660</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .game-box {
+            border: 2px solid #000;
+            background-color: #fff;
+            width: 800px;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .fullscreen-img {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .fullscreen-img:hover {
+            transform: scale(1.1);
+        }
+        .extras {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unblocked Games 660</h1>
+    </header>
+    <div class="container">
+        <div class="game-box">
+            <iframe src="https://example.com/slope-game" title="Slope Game"></iframe>
+            <img src="fullscreen-icon.png" alt="Fullscreen" class="fullscreen-img" onclick="fullscreenGame()">
+        </div>
+        <div class="extras">
+            <h2>Other Games</h2>
+            <p>Check out our other games!</p>
+            <!-- Add links to other games here -->
+        </div>
+    </div>
+    <script>
+        function fullscreenGame() {
+            const gameBox = document.querySelector('.game-box iframe');
+            if (gameBox.requestFullscreen) {
+                gameBox.requestFullscreen();
+            } else if (gameBox.mozRequestFullScreen) { /* Firefox */
+                gameBox.mozRequestFullScreen();
+            } else if (gameBox.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                gameBox.webkitRequestFullscreen();
+            } else if (gameBox.msRequestFullscreen) { /* IE/Edge */
+                gameBox.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
+
