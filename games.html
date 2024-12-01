@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Gallery</title>
+    <link rel="stylesheet" href="games.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <!-- Logo Section -->
+        <div class="logo">
+            <a href="/">
+                <img src="/logo/logo.png" alt="Logo">
+            </a>
+        </div>
+        <!-- Menu Links -->
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/games">Games</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Games Gallery</h1>
+    </header>
+
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="searchBox" class="search-box" placeholder="Search for a game..." oninput="filterGames()">
+    </div>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="games-grid" id="gamesGrid">
+            <!-- Game Cards (Add actual games here) -->
+            <a href="game1.html" class="game-card" data-game="game 1">
+                <img src="https://via.placeholder.com/500x500" alt="Game 1">
+                <h3>Game 1</h3>
+            </a>
+            <a href="game2.html" class="game-card" data-game="game 2">
+                <img src="https://via.placeholder.com/500x500" alt="Game 2">
+                <h3>Game 2</h3>
+            </a>
+            <a href="game3.html" class="game-card" data-game="game 3">
+                <img src="https://via.placeholder.com/500x500" alt="Game 3">
+                <h3>Game 3</h3>
+            </a>
+            <!-- Continue adding game blocks here -->
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Unblocked 660 | All Rights Reserved</p>
+        <p>Contact Us: <a href="mailto:unblocked660@gmail.com">unblocked660@gmail.com</a></p>
+    </footer>
+
+    <script>
+        function filterGames() {
+            const query = document.getElementById('searchBox').value.toLowerCase();
+            const games = document.querySelectorAll('.game-card');
+
+            games.forEach(game => {
+                const gameName = game.getAttribute('data-game').toLowerCase();
+                if (gameName.includes(query)) {
+                    game.style.display = 'block';
+                } else {
+                    game.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
