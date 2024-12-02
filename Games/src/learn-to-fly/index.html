@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn to Fly</title>
-    <script src="assets/ruffle/ruffle.js"></script>
+    <title>SWF Game</title>
+    <script src="/assets/ruffle/ruffle.js"></script>
 </head>
 <body>
-    <object type="application/x-shockwave-flash" data="games/src/learn-to-fly/learn-to-fly.swf" width="800" height="600">
-        <param name="wmode" value="opaque">
-    </object>
+    <h1>Play SWF Game</h1>
+
+    <!-- SWF container -->
+    <div id="swf-container" style="width: 100%; height: 100%;"></div>
+
     <script>
-        // Automatically initialize Ruffle for Flash objects
-        window.addEventListener('load', () => {
-            const ruffle = RufflePlayer.newest();
-            const flashObject = document.querySelector('object');
-            ruffle.attachFlashObject(flashObject);
-        });
+        // Create a new Ruffle player instance
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+
+        // Attach the player to the div
+        const container = document.getElementById("swf-container");
+        container.appendChild(player);
+
+        // Load the SWF file
+        player.load("/games/src/learn-to-fly/learn-to-fly.swf");
     </script>
 </body>
 </html>
