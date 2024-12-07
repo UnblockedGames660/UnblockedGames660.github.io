@@ -1,0 +1,9 @@
+<body>
+    <script src="/assets/ruffle/ruffle.js"></script>
+    <script>
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        document.body.appendChild(player);
+        player.load("/Games/src/13-days-in-hell/13-days-in-hell.swf");
+    </script>
+</body>
