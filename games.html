@@ -7,6 +7,159 @@
     <link rel="stylesheet" href="/css/games.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2650876183175857"
      crossorigin="anonymous"></script>
+    <style>
+        /* Basic Reset */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background: #243b55;
+            padding: 1em 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+
+        nav .logo img {
+            width: 2em;
+            height: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 1.5em;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 1em;
+            background-color: #f4f4f4;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Search Section */
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-box {
+            width: 80%;
+            max-width: 600px;
+            padding: 0.5em;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Game Grid Section */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }
+
+        .game-card {
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.2s ease;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .game-card:hover {
+            transform: scale(1.05);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* Responsive Layout for Smaller Screens */
+        @media (max-width: 1200px) {
+            .games-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .games-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer Section */
+        footer {
+            background: #243b55;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 20px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+            color: #ddd;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e67e22;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -63,7 +216,7 @@
                 <img src="/Games/src/EaglercraftX/EaglercraftX.jpg" alt="EaglercraftX">
                 <h3>Minecraft</h3>
             </a>
-            <!-- Continue adding game blocks here -->
+            <!-- Continue adding more game blocks here -->
         </div>
     </main>
 
@@ -71,7 +224,7 @@
     <footer>
         <p>&copy; 2024 Unblocked 660 | All Rights Reserved</p>
         <p>Developer: William Pinder</p>
-        <p>Cotributors: Oliver Brann, Elio Barnes, Sean Slisar, Jonas Mastello,  Matteo Di'micco, and Kieran Bennet.</p>
+        <p>Contributors: Oliver Brann, Elio Barnes, Sean Slisar, Jonas Mastello, Matteo Di'micco, and Kieran Bennet.</p>
         <p>Contact Us: <a href="mailto:unblocked660@gmail.com">unblocked660@gmail.com</a></p>
     </footer>
 
