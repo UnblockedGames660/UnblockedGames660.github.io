@@ -124,10 +124,10 @@ html {
             background: #243b55;
             text-align: center;
             padding: 1em 0;
-            position: relative;
+            position: fixed;
+            bottom: 0;
             width: 100%;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
-            margin-top: auto;
         }
 
         footer p {
