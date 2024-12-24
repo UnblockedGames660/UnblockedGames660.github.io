@@ -120,6 +120,11 @@ html {
             font-size: 1.2em;
         }
 
+        .spacer {
+            height: 50px; /* Adjust the height of the spacer */
+            width: 100%;
+        }
+
         footer {
             background: #243b55;
             text-align: center;
