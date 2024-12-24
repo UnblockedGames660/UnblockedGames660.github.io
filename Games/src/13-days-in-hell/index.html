@@ -4,45 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>13 days in hell - Unblocked Games 660</title>
-    <script src="/assets/ruffle/ruffle.js"></script>
+
+    <!-- Add your stylesheet or other resources here -->
     <style>
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
+
+            min-width: 100%;
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black; /* Optional: matches the game's background */
-        }
-        #swf-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        object, canvas {
-            display: block; /* Ensures it doesn’t add extra space */
             max-width: 100%;
+
+            min-height: 100%;
+            height: 100%;
             max-height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #container {
+            width: 800px;
+            height: 600px;
         }
     </style>
 </head>
 <body>
-    <!-- SWF container -->
-    <div id="swf-container"></div>
+    <!-- Game container -->
+    <div id="container"></div>
+
+    <!-- Updated paths for Ruffle.js and SWF -->
+    <script src="/assets/ruffle/ruffle.js"></script> <!-- Path to Ruffle.js -->
     <script>
-        // Create a new Ruffle player instance
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        // Attach the player to the div
-        const container = document.getElementById("swf-container");
-        container.appendChild(player);
-        // Load the SWF file
-        player.load("/Games/src/13-days-in-hell/13-days-in-hell.swf");
+        window.RufflePlayer = window.RufflePlayer || {};
+        
+        window.addEventListener("load", (event) => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            player.style.width = "100%";
+            player.style.height = "100%";
+
+            const container = document.getElementById("container");
+            container.appendChild(player);
+
+            player.addEventListener('loadedmetadata', () => {
+                console.info(player.metadata.isActionScript3);
+            });
+
+            // Load the SWF game from the specified location
+            player.load("/Games/src/13-days-in-hell/13-days-in-hell.swf") // Path to your SWF file
+                .then(() => {
+                    console.info("Ruffle successfully loaded the file");
+                    FitScreen();
+                })
+                .catch((e) => {
+                    console.error(`Ruffle failed to load the file: ${e}`);
+                });
+        });
+
+        // Function to adjust the game to fit the screen while maintaining aspect ratio
+        function FitScreen() {
+            var w = 800; // Original game width
+            var h = 600; // Original game height
+
+            var availWidth = window.innerWidth;
+            var availHeight = window.innerHeight;
+
+            var width, height;
+
+            if (availWidth / availHeight > w / h) {
+                height = availHeight;
+                width = (height * w / h);
+            } else {
+                width = availWidth;
+                height = (width * h / w);
+            }
+
+            document.getElementById("container").style.width = width + "px";
+            document.getElementById("container").style.height = height + "px";
+        }
     </script>
 </body>
 </html>
-
