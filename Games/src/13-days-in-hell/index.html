@@ -36,6 +36,13 @@
     <!-- SWF container -->
     <div id="swf-container"></div>
     <script>
+        const resizeCanvas = () => {
+            const canvas = document.querySelector('#swf-container canvas');
+            if (canvas) {
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+            }
+        };
         // Create a new Ruffle player instance
         const ruffle = window.RufflePlayer.newest();
         const player = ruffle.createPlayer();
@@ -44,6 +51,8 @@
         container.appendChild(player);
         // Load the SWF file
         player.load("/Games/src/13-days-in-hell/13-days-in-hell.swf");
+
+        window.addEventListener('resize', resizeCanvas);
     </script>
 </body>
 </html>
