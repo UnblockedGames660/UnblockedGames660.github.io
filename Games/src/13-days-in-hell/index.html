@@ -3,90 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>13 days in hell - Unblocked Games 660</title>
+    <title>13 Days in Hell - Unblocked Games 660</title>
 
-    <!-- Add your stylesheet or other resources here -->
     <style>
         html, body {
             margin: 0;
             padding: 0;
-
-            min-width: 100%;
             width: 100%;
-            max-width: 100%;
-
-            min-height: 100%;
             height: 100%;
-            max-height: 100%;
-        }
-
-        body {
-            overflow: hidden;
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 100vh;
+            align-items: center;
+            overflow: hidden;
         }
 
         #container {
-            width: 800px;
-            height: 600px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #game {
+            display: block;
+            width: 800px; /* Default width */
+            height: 600px; /* Default height */
         }
     </style>
 </head>
 <body>
-    <!-- Game container -->
-    <div id="container"></div>
+    <div id="container">
+        <div id="game"></div>
+    </div>
 
-    <!-- Updated paths for Ruffle.js and SWF -->
-    <script src="/assets/ruffle/ruffle.js"></script> <!-- Path to Ruffle.js -->
+    <!-- Path to Ruffle.js -->
+    <script src="/assets/ruffle/ruffle.js"></script>
+
     <script>
-        window.RufflePlayer = window.RufflePlayer || {};
-        
-        window.addEventListener("load", (event) => {
+        window.addEventListener("load", () => {
             const ruffle = window.RufflePlayer.newest();
             const player = ruffle.createPlayer();
-            player.style.width = "100%";
-            player.style.height = "100%";
 
-            const container = document.getElementById("container");
-            container.appendChild(player);
+            const gameContainer = document.getElementById("game");
+            gameContainer.appendChild(player);
 
-            player.addEventListener('loadedmetadata', () => {
-                console.info(player.metadata.isActionScript3);
-            });
-
-            // Load the SWF game from the specified location
-            player.load("/Games/src/13-days-in-hell/13-days-in-hell.swf") // Path to your SWF file
+            // Load the SWF file
+            player.load("/Games/src/13-days-in-hell/13-days-in-hell.swf")
                 .then(() => {
-                    console.info("Ruffle successfully loaded the file");
-                    FitScreen();
+                    console.info("Game loaded successfully.");
                 })
-                .catch((e) => {
-                    console.error(`Ruffle failed to load the file: ${e}`);
+                .catch((error) => {
+                    console.error("Error loading game:", error);
                 });
+
+            // Initial size adjustment
+            adjustGameSize();
+
+            // Listen for window resize and fullscreen events
+            window.addEventListener("resize", adjustGameSize);
+            document.addEventListener("fullscreenchange", adjustGameSize);
+
+            // Function to resize the game container
+            function adjustGameSize() {
+                const container = document.getElementById("container");
+                const aspectRatio = 800 / 600; // Original game aspect ratio
+                const windowWidth = window.innerWidth;
+                const windowHeight = window.innerHeight;
+
+                if (windowWidth / windowHeight > aspectRatio) {
+                    // Window is wider than the game's aspect ratio
+                    container.style.width = `${windowHeight * aspectRatio}px`;
+                    container.style.height = `${windowHeight}px`;
+                } else {
+                    // Window is taller than the game's aspect ratio
+                    container.style.width = `${windowWidth}px`;
+                    container.style.height = `${windowWidth / aspectRatio}px`;
+                }
+            }
         });
 
-        // Function to adjust the game to fit the screen while maintaining aspect ratio
-        function FitScreen() {
-            var w = 800; // Original game width
-            var h = 600; // Original game height
-
-            var availWidth = window.innerWidth;
-            var availHeight = window.innerHeight;
-
-            var width, height;
-
-            if (availWidth / availHeight > w / h) {
-                height = availHeight;
-                width = (height * w / h);
-            } else {
-                width = availWidth;
-                height = (width * h / w);
+        // Function to enter fullscreen mode
+        function goFullscreen() {
+            const container = document.getElementById("container");
+            if (container.requestFullscreen) {
+                container.requestFullscreen();
+            } else if (container.mozRequestFullScreen) {
+                container.mozRequestFullScreen(); // Firefox
+            } else if (container.webkitRequestFullscreen) {
+                container.webkitRequestFullscreen(); // Chrome, Safari, and Opera
+            } else if (container.msRequestFullscreen) {
+                container.msRequestFullscreen(); // IE/Edge
             }
-
-            document.getElementById("container").style.width = width + "px";
-            document.getElementById("container").style.height = height + "px";
         }
     </script>
 </body>
