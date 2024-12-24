@@ -87,6 +87,13 @@
 
             document.getElementById("container").style.width = width + "px";
             document.getElementById("container").style.height = height + "px";
+
+            // Resize the player inside the container
+            const player = document.querySelector('object');
+            if (player) {
+                player.style.width = `${width}px`;
+                player.style.height = `${height}px`;
+            }
         }
 
         // Ensure the game container resizes on window resize (including fullscreen)
