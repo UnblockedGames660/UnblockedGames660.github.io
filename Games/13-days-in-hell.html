@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>13 Days in Hell - Unblocked Games 660</title>
+    <title>13 days in hell - Unblocked Games 660</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,7 +75,6 @@
             width: 100%;
             height: 100%;
             border: none;
-            transition: all 0.3s ease; /* Smooth resizing */
         }
 
         .fullscreen-img {
@@ -114,11 +113,13 @@
 <body>
     <!-- Navigation Bar -->
     <nav>
+        <!-- Logo Section -->
         <div class="logo">
             <a href="/">
                 <img src="/logo/logo.png" alt="Logo">
             </a>
         </div>
+        <!-- Menu Links -->
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/games">Games</a></li>
@@ -129,7 +130,7 @@
     <!-- Game Container -->
     <div class="container">
         <div class="game-box">
-            <iframe src="/Games/src/13-days-in-hell/index.html" title="13 Days in Hell"></iframe>
+            <iframe src="/Games/src/13-days-in-hell/index.html" title="13 days in hell"></iframe>
             <img src="/img/fullscreen-button.png" alt="Fullscreen" class="fullscreen-img" onclick="fullscreenGame()">
         </div>
     </div>
@@ -144,7 +145,7 @@
 
     <script>
         function fullscreenGame() {
-            const gameBox = document.querySelector('.game-box');
+            const gameBox = document.querySelector('.game-box iframe');
             if (gameBox.requestFullscreen) {
                 gameBox.requestFullscreen();
             } else if (gameBox.mozRequestFullScreen) { /* Firefox */
@@ -155,19 +156,6 @@
                 gameBox.msRequestFullscreen();
             }
         }
-
-        document.addEventListener('fullscreenchange', () => {
-            const gameBox = document.querySelector('.game-box iframe');
-            if (document.fullscreenElement) {
-                // Adjust iframe for fullscreen
-                gameBox.style.width = '100%';
-                gameBox.style.height = '100%';
-            } else {
-                // Revert to original size
-                gameBox.style.width = '';
-                gameBox.style.height = '';
-            }
-        });
     </script>
 </body>
 </html>
